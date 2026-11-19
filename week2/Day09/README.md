@@ -1,3 +1,4 @@
-# Day09
+﻿# Day09
 
-Add your work for this training day here.
+Date: 2026-11-24
+
