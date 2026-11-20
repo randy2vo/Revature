@@ -1,0 +1,7 @@
+# Eclipse/Java build output
+bin/
+
+# OS/editor temp files
+.DS_Store
+Thumbs.db
+*.tmp
