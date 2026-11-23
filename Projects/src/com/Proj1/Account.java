@@ -45,4 +45,15 @@ public class Account {
 		return true;
 	}
 	
+	//CHecks if the withdraw is less than amount drawn or it will return false
+	public boolean withdraw(double amount) {
+		if (amount <= 0 || amount > balance) {
+			return false;
+		}
+		
+		balance -= amount;
+		return true;
+	}
+	
+	
 }

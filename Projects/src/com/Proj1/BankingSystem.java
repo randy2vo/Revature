@@ -8,6 +8,8 @@ public class BankingSystem {
 	private ArrayList<Account> accounts;
 	private ArrayList<Transaction> transactions;
 	
+	private int nextTransactionId = 1;
+	
 	public BankingSystem() {
 		customers = new ArrayList<>();
 		accounts = new ArrayList<>();
@@ -37,16 +39,57 @@ public class BankingSystem {
 		return null;
 	}
 	
-	
-	//Look for customers account number in Customer database. 
 
-	public Account findCustomerByAccount(int accountNumber) {
-		for(Account account : accounts) {
-			if(account.getAccountNumber().equals(accountNumber)) {
-				return account;
-			}
-		}
-		return null;
+	
+	//Look for customers accounts' by their account number in Customer database.
+	public Account findAccountByNumber(String accountNumber) {
+	    for (Account account : accounts) {
+	        if (account.getAccountNumber().equals(accountNumber)) {
+	            return account;
+	        }
+	    }
+
+	    return null;
 	}
 	
+	public boolean depositToAccount(String accountNumber, double amount) {
+	    Account account = findAccountByNumber(accountNumber);
+
+	    if (account == null) {
+	        return false;
+	    }
+
+	    if (!account.deposit(amount)) {
+	        return false;
+	    }
+
+	    Transaction transaction =
+	            new Transaction(nextTransactionId, "Deposit", amount, account);
+
+	    addTransaction(transaction);
+	    nextTransactionId++;
+
+	    return true;
+	}
+	
+	
+	public boolean withdrawFromAccount(String accountNumber, double amount) {
+		Account account = findAccountByNumber(accountNumber);
+		
+		if (account == null) {
+	        return false;
+	    }
+
+	    if (!account.withdraw(amount)) {
+	        return false;
+	    }
+	    
+	    Transaction transaction =
+	    		new Transaction(nextTransactionId, "Withdraw", amount, account);
+	    
+	    addTransaction(transaction);
+	    nextTransactionId++;
+	    
+		return true;
+	}
 }
