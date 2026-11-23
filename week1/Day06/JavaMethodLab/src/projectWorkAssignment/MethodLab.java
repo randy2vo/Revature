@@ -129,6 +129,18 @@ public class MethodLab {
 			   }
 		   
 		   
+		   public static String buildCsv(String a, String b, String c) {
+			   StringBuilder sb = new StringBuilder();
+			   sb.append(a).append(",").append(b).append(",").append(c);
+			   return sb.toString();
+		   }
+		   
+		   public static String edit(String text) {
+			   StringBuilder sbb = new StringBuilder(text);
+			   sbb.insert(0,  "[").append("]").replace(7, 12,"Java").deleteCharAt(6);
+			   return sbb.toString();
+		   }
+		   /////////////////////////////////////////////////////////////////////////////////
 		    public static void main(String[] args) {
 		        printProfile("Asha", 21, 5.6, true, 'A');
 		        printProfile("Ravi", 30, 5.9, false, 'B');
@@ -215,7 +227,11 @@ public class MethodLab {
 		     
 		      System.out.println("***************************************************"); //8
 		        
-		        
+		      System.out.println(buildCsv("a", "b", "c"));
+		      
+		      System.out.println(edit("Hellow World!"));
+		      
+		      
 
 		    }
 		    
