@@ -103,9 +103,31 @@ public class MethodLab {
 			   }
 		   }
 		   
+		   
 		   public static String initials(String first, String last) {
 			   return "" + Character.toUpperCase(first.charAt(0)) + Character.toUpperCase(last.charAt(0));
 			   }
+		   
+		   public static String clean(String raw) {
+			   return raw.trim().toLowerCase();
+		   }
+		   
+		   public static boolean isPalindromeWord(String w) {
+			   String reversed = new StringBuilder(w).reverse().toString();
+			   
+			   return w.equalsIgnoreCase(reversed);
+		   }
+		   
+		   public static String maskEmail(String email) {
+			   int atIndex = email.indexOf('@');
+			   
+			   String firstLetter = email.substring(0, 1);
+			    String stars = "*".repeat(atIndex - 1);
+			    String domain = email.substring(atIndex);
+
+			    return firstLetter + stars + domain;
+			   }
+		   
 		   
 		    public static void main(String[] args) {
 		        printProfile("Asha", 21, 5.6, true, 'A');
@@ -116,7 +138,7 @@ public class MethodLab {
 		        System.out.println(fitsInByte(128));
 		        System.out.println(fitsInByte(-129));
 		        
-		        System.out.println("***********************************************");
+		        System.out.println("***********************************************"); // 2
 		        
 		        System.out.println(addText("12", "30"));
 		        
@@ -133,7 +155,7 @@ public class MethodLab {
 		        Integer d = 1000;
 		        System.out.println(c + ": equals=" + sameValue(c, d) + " ==" + (c == d));
 		        
-		        System.out.println("***********************************************");
+		        System.out.println("***********************************************"); // 3
 		        
 		        System.out.println(truncate(9.99));
 		        System.out.println(truncate(-9.99));
@@ -144,7 +166,7 @@ public class MethodLab {
 		        
 		        System.out.println(shiftLetter('a', 2));
 		        
-		        System.out.println("***************************************************");
+		        System.out.println("***************************************************"); // 4 
 		  
 		        describeValue(5);
 		        describeValue(2.5);
@@ -152,7 +174,7 @@ public class MethodLab {
 		        describeValue('A');
 		        describeValue(5L);
 		        
-		        System.out.println("***************************************************");
+		        System.out.println("***************************************************"); // 5
 
 		        int x = 1;
 		        tryChange(x);
@@ -166,7 +188,7 @@ public class MethodLab {
 		        shout(s);
 		        System.out.println(s);
 		        
-		        System.out.println("***************************************************");
+		        System.out.println("***************************************************"); //6
 
 		        StringBuilder ab = new StringBuilder("cat");
 		        StringBuilder abc = ab;
@@ -180,10 +202,21 @@ public class MethodLab {
 		        System.out.println(safeLength((null)));
 		        System.out.println(safeLength(("hello")));
 		        
-		        System.out.println("***************************************************");
+		        System.out.println("***************************************************"); //7
 		        
-		      System.out.println(initials("ashu", "jauhari"));
+		      System.out.println(initials("ashu", "jauhari")); // 7.1
+		      
+		      System.out.println(clean("  Hello World!  ")); // 7.2
+		      
+		      System.out.println(isPalindromeWord("Level"));
+		      System.out.println(isPalindromeWord("Java"));
+
+		      System.out.println(maskEmail("asha@mail.com"));
+		     
+		      System.out.println("***************************************************"); //8
 		        
+		        
+
 		    }
 		    
 
