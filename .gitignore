@@ -1,0 +1,8 @@
+/.metadata/
+
+# Java build artifacts
+*.class
+bin/
+
+# Generated data/output files
+*.dat
